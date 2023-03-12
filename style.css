@@ -3,9 +3,10 @@
     --main:#2E307D;
     --effect:#1d1d4f;
     --meet:#FFE9E2;
-    --sun:#F3F3F3FE;
-    --baseline:#161748;
-    --crimson:crimson;
+    --baseline:#2e3047;
+    --sidebar:#514c9c;
+    --blue: #09aaf3;
+    --green:#3bba9c;
 }
 *{
     font-family: "Poppins";
@@ -32,13 +33,17 @@
     font-family: "Poppins";
     src: url('font/Poppins-Medium.ttf');
 }
+@font-face{
+    font-family: "8-bit-arcade";
+    src: url('font/8-bit\ Arcade\ In.ttf');
+}
 html{
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 body{
-    background-color: var(--effect);
+    background-color: #FFF;
 }
 section{
     padding: 3rem 9%;
@@ -46,18 +51,20 @@ section{
 .banner_tag{
     text-transform: uppercase;
     font-size: 2.5rem;
-    color: var(--Tusk);    
+    color: var(--blue);    
 }
 .banner_title{
-    text-transform: uppercase;
+    text-transform: uppercase;  
     font-size: 4rem;
-    color: var(--Tusk);
+    color: var(--sidebar);
 }
+
 .banner_desc{
-    text-transform: lowercase;
-    color: var(--meet);
+    text-transform: capitalize;
+    color: var(--main);
     font-size: 1.987rem;
     line-height: 2.5rem;
+
 }
 .btn{
    margin-top: 1rem;
@@ -75,6 +82,65 @@ section{
     color: var(--main);
     box-shadow: 0 0.5rem 1rem var(--main);
 }
+/*Side Navbar Style*/
+.app {
+	display: flex;
+	min-height: 100vh;
+}
+.sidebar {
+	flex: 1 1 0;
+	max-width: 200px;
+	padding: 3rem 2rem;
+	background-color: #514c9c;
+}
+
+.sidebar h3 {
+	color: #09aaf3;
+    font-family: "8-bit-arcade";
+    text-shadow: 3px 5px 5px var(--main);
+	text-transform: uppercase;
+	margin-bottom: 0.5em;
+    font-size: 4rem;
+}
+.fas{
+    font-size: 2.0rem;
+}
+.sidebar .menu{
+	margin: 0 -2rem;
+    font-size: 2.0rem;
+}
+.sidebar .menu a:hover{
+    margin-left: 1px;
+}
+.sidebar .menu .menu-item {
+	display: block;
+	padding: 1.2em;
+	color: #FFF;
+    text-shadow: 3px 5px 4px var(--main);
+	text-decoration: none;
+	transition: 0.2s linear;
+    font-family: "8-bit-arcade";
+    margin-top: 80px;
+}
+
+.sidebar .menu .menu-item:hover,
+.sidebar .menu .menu-item.is-active {
+	color: var(--Tusk);
+	border-right: 5px solid var(--Tusk);
+    text-shadow: 3px 5px 4px var(--main);
+}
+
+.sidebar .menu .menu-item:hover {
+	border-right: 5px solid var(--Tusk);
+
+}
+
+.contain {
+	flex: 1 1 0;
+    padding: 0rem;
+}
+
+
 /*Header style with parallax*/
 .banner{
     width: 100%;
@@ -91,12 +157,15 @@ section{
 }
 .layer-3{
     position: absolute;
-    color: white;
 }
 .layer-3 h1{
     text-transform: capitalize;
     margin-top: 80px;
     text-align: center;
+    color: var(--Tusk);
+    text-shadow: 10px 5px 5px var(--main);
+    font-family: "8-bit-arcade";
+    font-size: 4rem;
     margin: 40px 0;
 }
 .layer-3 p {
@@ -112,15 +181,18 @@ section{
     opacity: 0.7;
     text-indent: 0;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     transform: translateY(-20px);
+    color: var(--Tusk);
+    text-shadow: 10px 5px 5px #2E307D;
+    font-family: '8-bit-arcade';
 }
 .layer-3 a{
     background-color: #7ff5ff;
     display: block;
     width: 140px;
     height: 40px;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 40px;
     text-align: center;
     margin: auto;
@@ -128,6 +200,7 @@ section{
     text-decoration: none;
     font-weight: bold;
     color: #514c9c;
+    font-family: "8-bit-arcade";
 }
 .layer-3 a:hover{
     background-color: var(--meet);
@@ -153,27 +226,13 @@ section{
     align-items: center;
     justify-content: center;
 }
-.contents h1{
-    color: var(--meet);
-    text-align: center;
-}
-.contents p{
-    color: var(--meet);
-    text-align: justify;
-    line-height: 20px;
-    letter-spacing: 1px;
-    text-indent: 50px;
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    opacity: 0.7;
-    transform: translateZ(100px) scale(.90);
+.arcade{
+    font-family: '8-bit-arcade';
+    text-shadow: 10px 5px 5px #2E307D;
 }
 /*navbar style*/
 .header{
-    position: sticky;
+    position:sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -199,8 +258,14 @@ section{
     color: var(--Tusk);
     margin: 0 1rem;
 }
-.header .navbar a:hover{
+.header .navbar a:hover:not(.active){
     color: var(--meet);
+    border-bottom: 5px solid var(--Tusk);
+    padding: 22px;
+}
+.header .navbar a.active{
+    border-bottom: 5px solid var(--Tusk);
+    padding: 22px;
 }
 .header .icons a{
     font-size: 2.5rem;
@@ -337,14 +402,14 @@ section{
 .services .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
-    grid-gap: 5rem;
+    grid-gap: 2rem;
     margin: 10em 0 5em 0;
     perspective: 1000px;
 }
 .services .card{
     padding: 1em;
     text-align: center;
-    background: var(--meet);
+    background: var(--sidebar);
     border-radius: 10px;
     box-shadow:0 7px 29px 0 var(--Tusk);
     position: relative;
@@ -367,11 +432,11 @@ section{
 
 .services .card h3{
     font-size: 2rem;
-    color: var(--main);
+    color: var(--Tusk);
 }
 
 .services .card p{
-    color: var(--main);
+    color: var(--meet);
     font-size: 1.6rem;
     line-height: 3rem;
     transform: translateZ(10px) scale(.90);
@@ -390,7 +455,7 @@ section{
     text-align: center;
     box-shadow:0 7px 29px 0 var(--Tusk);
     padding: 2rem;
-    background: var(--meet);
+    background: var(--sidebar);
 }
 
 .faq .icons-container .icons img{
@@ -404,13 +469,13 @@ section{
 }
 
 .faq .icons-container .icons h3{
-    color: var(--main);
+    color: var(--Tusk);
     font-size: 2rem;
     padding: 1rem 0;
 }
 
 .faq .icons-container .icons p{
-    color: var(--main);
+    color: var(--meet);
     font-size: 1.5rem;
     padding: 1rem 0;
     line-height: 2rem;
@@ -447,10 +512,12 @@ section{
 
 .footer .box-container .box a:hover{
     color: var(--meet);
+    margin-left: 10px;
+    transition: 0.6s ease ;
 }
 
 .footer .box-container .box a:hover i{
-    padding-right: 2rem;
+    padding-left: 10px;
     color: var(--meet);
 }
 
@@ -546,7 +613,7 @@ section{
         top: 100%;
         left: 0;
         right: 0;
-        background:var(--baseline);
+        background:var(--main);
         border-top: 1px solid rgba(0,0,0,0.1);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
@@ -570,6 +637,7 @@ section{
     .footer .box-container .box a{
         text-align: center;
     }
+
     .mob-fill{
         padding: 53px;
         margin-top: -55px;
@@ -580,6 +648,15 @@ section{
     }
     .contents{
         flex-direction: column;
+    }
+    .contents .side h1{
+        margin-top: 24px;
+    }
+    .contents .side p{
+        margin-top: 15px;
+    }
+    .sidebar .menu .menu-item {
+        margin-top: 100px;
     }
 }
 @media(max-width:450px){
